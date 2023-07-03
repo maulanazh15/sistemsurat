@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SuratController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PenerimaController;
@@ -18,7 +19,7 @@ use App\Http\Controllers\PengirimController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::get('/dashboard', function () {
@@ -33,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/pengirim', PengirimController::class);
     Route::resource('/penerima', PenerimaController::class);
     Route::resource('/kategori', KategoriController::class);
+    Route::resource('/surat', SuratController::class);
 
 });
 
